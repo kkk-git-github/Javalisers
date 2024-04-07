@@ -3,8 +3,7 @@ import java.util.Scanner;
 
 public class ReadingSpeedEstimator {
     public static double ReadingSpeedEstimatorFunction(String paragraph, double expectedReadingSpeed) {
-        WordCounter WCHolder = new WordCounter();
-        int numWords = WCHolder.Resolver(paragraph);
+        int numWords = WordCounter.Resolver(paragraph);
         double readingTime = numWords / expectedReadingSpeed;
         return readingTime;
     }
