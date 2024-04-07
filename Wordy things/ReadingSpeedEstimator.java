@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 
 public class ReadingSpeedEstimator {
-    public static double ReadingSpeedEstimatorFunction(String paragraph, int expectedReadingSpeed) {
+    public static double ReadingSpeedEstimatorFunction(String paragraph, double expectedReadingSpeed) {
         WordCounter WCHolder = new WordCounter();
         int numWords = WCHolder.Resolver(paragraph);
         double readingTime = numWords / expectedReadingSpeed;
@@ -16,11 +16,10 @@ public class ReadingSpeedEstimator {
             String paragraph = sc.nextLine();
             System.out.println("Enter your expected reading speed (WPS): ");
             try (Scanner sc2 = new Scanner(System.in)) {
-                int expectedReadingSpeed = sc2.nextInt();
+                double expectedReadingSpeed = sc2.nextDouble();
                 double readingTime = ReadingSpeedEstimatorFunction(paragraph, expectedReadingSpeed);
                 System.out.println("(Percise) Estimated reading time: " + readingTime + " seconds");
-                int unprecisionReadingTime = (int) readingTime;
-                int minutes = (int)(unprecisionReadingTime / 60);
+                int minutes = (int)(readingTime / 60);
                 System.out.println("Estimated reading time in minutes: " + minutes);
             }
         }
